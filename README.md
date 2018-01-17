@@ -93,6 +93,17 @@ PUT localhost:8080/client/{id}
 
 POST localhost:8080/product/
 
+##### Body
+
+```
+{
+  id: null,
+  name: "Cel Phone",
+  barcode: "7898080640222",
+  price: 4025.25
+}
+```
+
 #### Busca Todos Produto
 
 GET localhost:8080/product/all
@@ -104,6 +115,17 @@ DELETE localhost:8080/product/{id}
 #### Atualiza o Produto
 
 PUT localhost:8080/product/{id}
+
+##### Body
+
+```
+{
+  id: 1,
+  name: "Cel Phone",
+  barcode: "7898080640222",
+  price: 425.25
+}
+```
 
 ### Pedido
 
