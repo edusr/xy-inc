@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Eduardo Silva Rosa
@@ -24,16 +25,22 @@ public class Adress implements Serializable{
     @Column( name = "id" )
     private Long id;
 
+    @NotNull(message="Street can not be null")
     private String street;
 
+    @NotNull(message="Neighborhood can not be null")
     private String neighborhood;
 
+    @NotNull(message="Number can not be null")
     private String number;
 
+    @NotNull(message="City can not be null")
     private String city;
 
+    @NotNull(message="State can not be null")
     private String state;
 
+    @NotNull(message="Country can not be null")
     private String country;
 
     public Long getId() {

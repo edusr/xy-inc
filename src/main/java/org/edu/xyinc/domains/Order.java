@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Eduardo Silva Rosa
@@ -31,9 +32,11 @@ public class Order implements Serializable {
     private Long id;
 
     @ManyToOne
+    @NotNull(message="Client can not be null")
     private Client client;
 
     @OneToMany(mappedBy="order")
+    @NotNull(message="Itens can not be null")
     private List< OrderItem > itens;
 
     public Long getId() {

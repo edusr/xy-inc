@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Eduardo Silva Rosa
@@ -31,10 +32,13 @@ public class OrderItem implements Serializable {
     private Long id;
 
     @OneToOne
+    @NotNull(message="Product can not be null")
     private Product product;
 
+    @NotNull(message="Quantity can not be null")
     private Long quantity;
 
+    @NotNull(message="Quantity can not be null")
     private BigDecimal unityPrice;
 
     @ManyToOne

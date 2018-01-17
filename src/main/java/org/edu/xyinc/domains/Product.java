@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Eduardo Silva Rosa
@@ -28,10 +30,15 @@ public class Product implements Serializable {
     @GeneratedValue( strategy = GenerationType.AUTO )
     private Long id;
 
+    @NotNull(message="Name can not be null")
+    @Size(min=2, max=200, message="Size must be betwen 2 and 200")
     private String name;
 
+    @NotNull(message="Barcode can not be null")
+    @Size(min=2, max=14, message="Size must be betwen 2 and 14")
     private String barcode;
 
+    @NotNull(message="Price can not be null")
     private BigDecimal price;
 
     public Long getId() {

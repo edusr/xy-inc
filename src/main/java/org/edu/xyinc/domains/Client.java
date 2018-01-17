@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 /**
  * @author Eduardo Silva Rosa
@@ -26,20 +30,23 @@ public class Client implements Serializable {
     @Column( name = "id" )
     private Long id;
 
-    @Column( name = "name" )
+    @NotNull(message="Name can not be null")
+    @Size(min=2, max=200, message="Size must be betwen 2 and 200")
     private String name;
 
-    @Column( name = "document" )
+    @NotNull(message="Name can not be null")
+    @Size(min=2, max=14, message="Size must be betwen 2 and 14")
     private String document;
 
-    @Column( name = "email" )
+    @Email(message="Email must be email")
     private String email;
 
-    @Column( name = "phone" )
+    @Size(min=8, max=17, message="Size must be betwen 2 and 17")
     private String phone;
 
     @OneToOne
     @JoinColumn( name = "addres_id", referencedColumnName = "id" )
+    @NotNull(message="Name can not be null")
     private Adress adress;
 
     public Long getId() {
