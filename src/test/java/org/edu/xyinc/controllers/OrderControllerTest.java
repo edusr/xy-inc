@@ -3,6 +3,7 @@
  */
 package org.edu.xyinc.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -103,8 +104,6 @@ public class OrderControllerTest {
         orderItem.setUnityPrice( product.getPrice() );
         orderItem.setQuantity( 10L );
         
-        
-        
         order.addItem( orderItem );
         
 
@@ -113,21 +112,6 @@ public class OrderControllerTest {
 
         this.mockMvc.perform( post( "/order" ).contentType( MediaType.APPLICATION_JSON ).content( jsonResult ) )
             .andExpect( status().isOk() );
-
-    }
-    
-    /*@Test(expected=NestedServletException.class)
-    public void saveOrderWithoutName() throws Exception {
-
-        Order order = new Order();
-        order.setBarcode( "7898080640222" );
-        order.setPrice( new BigDecimal( 4025.25 ) );
-
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonResult = mapper.writeValueAsString( order );
-
-        this.mockMvc.perform( post( "/order" ).contentType( MediaType.APPLICATION_JSON ).content( jsonResult ) )
-            .andExpect( status().is( 500 ) );
 
     }
     
@@ -140,11 +124,13 @@ public class OrderControllerTest {
     
     @Test
     public void deleteOrderOk() throws Exception {
+        
+        saveOrdOneIfNotExists();
 
         this.mockMvc.perform( delete( "/order/1" ))
             .andExpect( status().isOk() );
 
-    }*/
+    }
     
     private void saveClientOneIfNotExists() throws XyApplicationException {
 
