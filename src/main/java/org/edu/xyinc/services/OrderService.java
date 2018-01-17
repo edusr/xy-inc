@@ -3,14 +3,16 @@
  */
 package org.edu.xyinc.services;
 
-import org.springframework.stereotype.Service;
+import org.edu.xyinc.domains.Order;
+import org.edu.xyinc.exceptionhandler.XyApplicationException;
 
 /**
  * @author Eduardo Silva Rosa
  *		   edus.silva.rosa@gmail.com
- * 		   16/01/2018 09:22:16
+ * 		   17/01/2018 11:12:57
  */
-@Service
-public class OrderService {
+public interface OrderService {
+    
+    public void saveOrder( Order order ) throws XyApplicationException;
 
 }

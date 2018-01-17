@@ -5,10 +5,11 @@ package org.edu.xyinc.domains;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -27,26 +28,25 @@ import org.hibernate.validator.constraints.Email;
 public class Client implements Serializable {
 
     @Id
-    @Column( name = "id" )
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @NotNull(message="Name can not be null")
-    @Size(min=2, max=200, message="Size must be betwen 2 and 200")
+    @NotNull( message = "Name can not be null" )
+    @Size( min = 2, max = 200, message = "Size must be betwen 2 and 200" )
     private String name;
 
-    @NotNull(message="Name can not be null")
-    @Size(min=2, max=14, message="Size must be betwen 2 and 14")
+    @NotNull( message = "Document can not be null" )
+    @Size( min = 2, max = 14, message = "Size must be betwen 2 and 14" )
     private String document;
 
-    @Email(message="Email must be email")
+    @Email( message = "Email must be email" )
     private String email;
 
-    @Size(min=8, max=17, message="Size must be betwen 2 and 17")
+    @Size( min = 8, max = 17, message = "Size must be betwen 2 and 17" )
     private String phone;
 
-    @OneToOne
-    @JoinColumn( name = "addres_id", referencedColumnName = "id" )
-    @NotNull(message="Name can not be null")
+    @OneToOne(cascade=CascadeType.ALL)
+    @NotNull( message = "Adress can not be null" )
     private Adress adress;
 
     public Long getId() {

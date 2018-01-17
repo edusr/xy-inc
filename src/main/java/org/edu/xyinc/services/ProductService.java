@@ -3,14 +3,16 @@
  */
 package org.edu.xyinc.services;
 
-import org.springframework.stereotype.Service;
+import org.edu.xyinc.domains.Product;
+import org.edu.xyinc.exceptionhandler.XyApplicationException;
 
 /**
  * @author Eduardo Silva Rosa
- *         edus.silva.rosa@gmail.com
- *         16/01/2018 09:22:27
+ *		   edus.silva.rosa@gmail.com
+ * 		   17/01/2018 11:13:10
  */
-@Service
-public class ProductService {
+public interface ProductService {
+    
+    public void saveProduct(Product product) throws XyApplicationException;
 
 }

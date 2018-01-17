@@ -6,6 +6,7 @@ package org.edu.xyinc.domains;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,9 +41,6 @@ public class OrderItem implements Serializable {
 
     @NotNull(message="Quantity can not be null")
     private BigDecimal unityPrice;
-
-    @ManyToOne
-    private Order order;
 
     public Long getId() {
 
@@ -84,14 +82,5 @@ public class OrderItem implements Serializable {
         this.unityPrice = unityPrice;
     }
 
-    public Order getOrder() {
-
-        return order;
-    }
-
-    public void setOrder( Order order ) {
-
-        this.order = order;
-    }
 
 }
