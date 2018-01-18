@@ -14,16 +14,14 @@ password=root
 
 ## Executando xy-inc localmente
 
-Para o build da aplicação, execute a Classe XyIncApplication como um Java Application
-
-## Executando os testes unitários
-
-Os teste foram desenvolvidos com JUnit test
-
 ```
 cd xy-inc
 mvn spring-boot:run
 ```
+
+## Executando os testes unitários
+
+Os teste foram desenvolvidos com JUnit test
 
 ## Serviços Disponibilizados
 
